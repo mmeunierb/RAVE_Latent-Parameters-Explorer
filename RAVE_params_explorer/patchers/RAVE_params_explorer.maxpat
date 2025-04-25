@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 40.0, -1003.0, 1852.0, 929.0 ],
+		"rect" : [ 539.0, -741.0, 898.0, 490.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -574,13 +574,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-29",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 91.0, 233.0, 455.0, 36.0 ],
-									"text" : "2.073627 1.971257 0.515378 2.369406 2.898959 0.992811 2.469658 2.91299 0.633769 0.607101 2.133403 2.730401 0.58848 0.662148 1.093406 2.762435"
+									"text" : "1.003002 2.988305 0.331858 1.404183 0.755485 0.572585 2.228517 0.349085"
 								}
 
 							}
@@ -3437,10 +3436,10 @@
 					"color" : [ 0.498039215686275, 0.556862745098039, 0.745098039215686, 1.0 ],
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "drums_spectral 0001 [2025-04-05 155737].wav",
-								"filename" : "drums_spectral 0001 [2025-04-05 155737].wav",
+								"absolutepath" : "jongly.aif",
+								"filename" : "jongly.aif",
 								"filekind" : "audiofile",
-								"id" : "u503001843",
+								"id" : "u685001003",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 0,
 								"content_state" : 								{
@@ -6752,35 +6751,85 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-42",
-					"linecount" : 5,
+					"id" : "obj-38",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "multichannelsignal" ],
+					"patching_rect" : [ 939.0, 378.0, 107.0, 22.0 ],
+					"text" : "mc.list~ @chans 8",
+					"varname" : "noiseParams[1]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-41",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "multichannelsignal" ],
+					"patching_rect" : [ 531.0, 378.0, 107.0, 22.0 ],
+					"text" : "mc.list~ @chans 8",
+					"varname" : "HyperParams[1]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-42",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
 					"numoutlets" : 2,
-					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 16.0, 501.0, 100.0, 77.0 ],
-					"text" : "mcs.nn~ birds_dawnchorus_b2048_r48000_z8.ts encode 2 4096",
-					"varname" : "encoder"
+					"outlettype" : [ "multichannelsignal", "" ],
+					"patching_rect" : [ 134.0, 614.0, 100.0, 22.0 ],
+					"text" : "mcs.matrix~ 8 8",
+					"varname" : "matrixR[1]"
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-44",
-					"linecount" : 5,
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 1,
 					"numoutlets" : 2,
-					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 16.0, 700.0, 100.0, 77.0 ],
-					"text" : "mcs.nn~ birds_dawnchorus_b2048_r48000_z8.ts decode 2 4096",
-					"varname" : "decoder"
+					"outlettype" : [ "multichannelsignal", "" ],
+					"patching_rect" : [ 16.0, 614.0, 100.0, 22.0 ],
+					"text" : "mcs.matrix~ 8 8",
+					"varname" : "matrixL[1]"
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-47",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
+					"patching_rect" : [ 16.0, 501.0, 170.0, 22.0 ],
+					"text" : "mcs.nn~ isis.ts encode 2 4096",
+					"varname" : "encoder"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-50",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
+					"patching_rect" : [ 16.0, 700.0, 170.0, 22.0 ],
+					"text" : "mcs.nn~ isis.ts decode 2 4096",
+					"varname" : "decoder"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-52",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
@@ -6793,7 +6842,7 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-50",
+					"id" : "obj-55",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
@@ -6806,7 +6855,7 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-52",
+					"id" : "obj-61",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
@@ -6819,7 +6868,7 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-55",
+					"id" : "obj-66",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
@@ -7053,7 +7102,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-44", 1 ],
+					"destination" : [ "obj-50", 1 ],
 					"order" : 0,
 					"source" : [ "obj-165", 0 ]
 				}
@@ -7061,7 +7110,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-44", 0 ],
+					"destination" : [ "obj-50", 0 ],
 					"order" : 1,
 					"source" : [ "obj-165", 0 ]
 				}
@@ -7419,7 +7468,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-42", 1 ],
+					"destination" : [ "obj-47", 1 ],
 					"source" : [ "obj-39", 0 ]
 				}
 
@@ -7442,29 +7491,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-52", 0 ],
-					"source" : [ "obj-42", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-55", 0 ],
-					"order" : 1,
-					"source" : [ "obj-42", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-57", 0 ],
-					"order" : 0,
-					"source" : [ "obj-42", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-125", 0 ],
 					"source" : [ "obj-43", 0 ]
 				}
@@ -7472,21 +7498,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-17", 0 ],
-					"source" : [ "obj-44", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-46", 0 ],
-					"source" : [ "obj-44", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-42", 0 ],
+					"destination" : [ "obj-47", 0 ],
 					"source" : [ "obj-45", 0 ]
 				}
 
@@ -7500,7 +7512,23 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-166", 1 ],
+					"destination" : [ "obj-57", 0 ],
+					"order" : 0,
+					"source" : [ "obj-47", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-61", 0 ],
+					"source" : [ "obj-47", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-66", 0 ],
+					"order" : 1,
 					"source" : [ "obj-47", 0 ]
 				}
 
@@ -7523,14 +7551,21 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-50", 0 ],
+					"destination" : [ "obj-55", 0 ],
 					"source" : [ "obj-5", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-165", 0 ],
+					"destination" : [ "obj-17", 0 ],
+					"source" : [ "obj-50", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-46", 0 ],
 					"source" : [ "obj-50", 0 ]
 				}
 
@@ -7544,14 +7579,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-44", 1 ],
+					"destination" : [ "obj-166", 1 ],
 					"source" : [ "obj-52", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-47", 0 ],
+					"destination" : [ "obj-52", 0 ],
 					"source" : [ "obj-53", 0 ]
 				}
 
@@ -7565,7 +7600,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-44", 0 ],
+					"destination" : [ "obj-165", 0 ],
 					"source" : [ "obj-55", 0 ]
 				}
 
@@ -7620,7 +7655,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-42", 0 ],
+					"destination" : [ "obj-50", 1 ],
+					"source" : [ "obj-61", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-47", 0 ],
 					"order" : 1,
 					"source" : [ "obj-62", 0 ]
 				}
@@ -7628,7 +7670,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-44", 0 ],
+					"destination" : [ "obj-50", 0 ],
 					"order" : 0,
 					"source" : [ "obj-62", 0 ]
 				}
@@ -7665,7 +7707,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-52", 0 ],
+					"destination" : [ "obj-50", 0 ],
+					"source" : [ "obj-66", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-61", 0 ],
 					"order" : 0,
 					"source" : [ "obj-67", 0 ]
 				}
@@ -7673,7 +7722,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-55", 0 ],
+					"destination" : [ "obj-66", 0 ],
 					"order" : 1,
 					"source" : [ "obj-67", 0 ]
 				}
@@ -8015,10 +8064,9 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "drums_spectral 0001 [2025-04-05 155737].wav",
-				"bootpath" : "~/Desktop/Ableton 12 Projects/test clouds clone Project/Samples/Recorded",
-				"patcherrelativepath" : "../../../../../Ableton 12 Projects/test clouds clone Project/Samples/Recorded",
-				"type" : "WAVE",
+				"name" : "jongly.aif",
+				"bootpath" : "C74:/media/msp",
+				"type" : "AIFF",
 				"implicit" : 1
 			}
 , 			{
@@ -8027,7 +8075,7 @@
 			}
 , 			{
 				"name" : "pan2.maxpat",
-				"bootpath" : "~/Desktop/MUS3329X/TP3/mcs version 16-04/RAVE+_mcs.nn_v2/patchers",
+				"bootpath" : "~/Desktop/MUS3329X/TP3/RAVE_params_explorer/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
