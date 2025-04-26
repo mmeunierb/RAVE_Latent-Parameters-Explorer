@@ -7,7 +7,7 @@ This device encourages the exploration of RAVE models' latent parameters by manu
 # Installation
 
 1. Download the latest `nn~` version [here](https://github.com/domkirke/nn_tilde/releases/), extract and place it in your Max Packages folder.
-2. **FOR WINDOWS ONLY**: as instructed on the `nn~` [web page](https://forum.ircam.fr/projects/detail/nn/), copy and paste the `.dll` files from the package next to the `Max.exe` (usually `C:\Program Files\Cycling '74\Max 8`).
+2. **FOR WINDOWS USERS**: as instructed on the `nn~` [web page](https://forum.ircam.fr/projects/detail/nn/), copy and paste the `.dll` files from the package next to the `Max.exe` (usually `C:\Program Files\Cycling '74\Max 8`).
 3. Download pre-trained RAVE models from the [Acids Lab](https://acids-ircam.github.io/rave_models_download) or [Intelligent Instruments Labs](https://huggingface.co/Intelligent-Instruments-Lab/rave-models) and place them in a designated folder. If you already have a RAVE models folder, make sure that the path is added to `File Preferences` in Max. This is needed for the dynamic loading of models. Note that the patche's `Browse` button lets you choose a custom location to replace the path of the drop down menu.
 
 # Usage
@@ -16,7 +16,7 @@ This device encourages the exploration of RAVE models' latent parameters by manu
 
 - After creating a file path to the RAVE models, an easy way to make sure they are properly seen by Max is to open a new patcher, load a `nn~` object with a model name (ex. `isis.ts`) and a method (`forward`, `encode`, `decode`) as arguments. If the path and the `.dll` files (Windows) are properly seen, the object will load normally without any error messages. If any error messages appear in the Max console, either the file path or the `.dll` files are misplaced.
 
-- Before opening the `RAVE_params_explorer.maxproj` file, launch Max, open `Audio Status` and select the desired inputs and an outputs. This will assure the proper loading of the patch and prevent any issues related to audio settings. **FOR WINDOWS ONLY**: since the device will load up four instances of the models in two mcs.nn~ objects, it is recommanded to set the audio settings to `ad_mme`, the `Thread Priority` to **Highest** and `Latency (ms)` to 250. Other set-ups seem to produce CPU spikes (Windows 10, ThinkPad T14 Gen5 AMD Ryzen 8840u, 32Gb RAM) and major audio drops.
+- Before opening the `RAVE_params_explorer.maxproj` file, launch Max, open `Audio Status` and select the desired inputs and an outputs. This will assure the proper loading of the patch and prevent any issues related to audio settings. **FOR WINDOWS USERS**: since the device will load up four instances of the models in two mcs.nn~ objects, it is recommanded to set the audio settings to `ad_mme`, the `Thread Priority` to **Highest** and `Latency (ms)` to 250. Other set-ups seem to produce CPU spikes (Windows 10, ThinkPad T14 Gen5 AMD Ryzen 8840u, 32Gb RAM) and major audio drops.
 
 ## Getting started
   
