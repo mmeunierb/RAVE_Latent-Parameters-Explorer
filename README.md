@@ -2,7 +2,7 @@
 
 This device encourages the exploration of RAVE models' latent parameters by manually dialing in or randomizing the connections between the encoder and decoder, the value of each latent dimension, and their modulation amount.  
 
-It is based on the Acids Lab's work (RAVE and `nn~`), and is essentially a redesign of the RAVE [VST version](https://forum.ircam.fr/projects/detail/rave-vst/), with quicker access to and a simpler visual representation of the latent connections and parameters.
+It is based on the Acids Lab's work (RAVE and `nn~`), and is essentially a redesign of the [RAVE VST version](https://forum.ircam.fr/projects/detail/rave-vst/), with quicker access to and a simpler visual representation of the latent connections and parameters.
 
 ![latent-params](assets/rave-params-exp.png)
 
@@ -29,7 +29,7 @@ It is based on the Acids Lab's work (RAVE and `nn~`), and is essentially a redes
 
   If an error message appears in the Max console, either the RAVE models folder or the `.dll` files (Windows) are misplaced.
 
-- Before opening the `RAVE_params_explorer.maxproj` file, launch Max, go to `Audio Status`, and select the desired input and output devices. This ensures the proper loading of the patch and prevents any issues related to audio settings.  
+- Before opening `RAVE_params_explorer.maxproj`, launch Max, go to `Audio Status`, and select the desired input and output devices. This ensures the proper loading of the patch and prevents any issues related to audio settings.  
 
   **FOR WINDOWS USERS**:
   Since the device loads four instances of the models inside two `mcs.nn~` objects, it is recommended to set the audio driver to `ad_mme`, the `Thread Priority` to **Highest**, and `Latency (ms)` to **250**.  
@@ -37,9 +37,11 @@ It is based on the Acids Lab's work (RAVE and `nn~`), and is essentially a redes
   Other set-ups can cause CPU spikes and major audio drops (tested under Windows 10, ThinkPad T14 Gen5 AMD Ryzen 8840u, 32GB RAM).
 
 
-## Getting Started
+## Getting started
 
-- On startup, the first model in the dropdown menu will be loaded and heard.  
+On startup, the first model in the dropdown menu will be loaded and heard.
+
+### Loading models 
 
   Technically, there is no need to change the file path in the dropdown menu; if the RAVE models folder is properly seen by Max and the same models are present, they will load correctly in the `nn~` objects.  
 
@@ -47,15 +49,19 @@ It is based on the Acids Lab's work (RAVE and `nn~`), and is essentially a redes
 
   Alternatively, you can drag and drop any RAVE `model.ts` file manually into the `drop model.ts` box to load it.
 
-- The `buffer size` is set by default to 4096, since this device was *not* built with real-time purposes in mind. The overall latency and CPU usage will vary depending on the selected `buffer size`.
+### Buffer Size
 
-- The incoming signal, onto which the timbre transfer will be applied, can be either a live signal or a sound file (or both simultaneously).  
+   The `buffer size` is set by default to 4096, since this device was *not* built with real-time purposes in mind. The overall latency and CPU usage will vary depending on the selected `buffer size`.
 
-  - To turn on the live input, press the `External` button and select the desired input channel(s).
+### Input signal
+
+   The incoming signal, onto which the timbre transfer will be applied, can be either a live signal or a sound file (or both simultaneously).  
+
+   - To turn on the live input, press the `External` button and select the desired input channel(s).
     
-  - The `Gain` knob adjusts the input level of the external signal.
+   - The `Gain` knob adjusts the input level of the external signal.
     
-  - The horizontal fader controls the overall input level of both the incoming external signal and the sound file.
+   - The horizontal fader controls the overall input level of both the incoming external signal and the sound file.
  
 ➔ The `input level` appears to be a significant parameter when using RAVE models. Depending on the model, there are specific input levels where the model responds better, and others where it can completely break, producing heavy digital distortion or even silence.
 
@@ -83,15 +89,15 @@ It is based on the Acids Lab's work (RAVE and `nn~`), and is essentially a redes
   
   - The `RAND` and `RESET` buttons **randomize** or **reset** the entire array of sliders.
 
-- The second `multislider` object applies random modulation to the values set in the first one.  
+- The second `multislider` object applies **Latent Noise** to the values set in the first one.  
 
-  - `Latent Noise` is added by adjusting the modulation amount per dimension, and the `latent noise frequency` controls the speed of this modulation.  
+  - Random modulation is added by adjusting the modulation amount per dimension, and the `latent noise frequency` controls the speed of this modulation.  
   
-  - The `RAND` and `RESET` buttons behave the same as in the first multislider.
+  - The `RAND` and `RESET` buttons behave the same as with the first multislider.
   
 ➔ When a model is loaded, the number of latent dimensions will be **automatically detected** and updated in the patchbay and both multisliders. The detected number of dimensions is displayed at the bottom right of the `Latent Noise` multislider.
 
-## Presets and Recording Audio
+## Presets and recording audio
 
 - The `Presets` box allows you to easily save and recall the `input level`, patchbay connections, and the values of both multisliders.
 
