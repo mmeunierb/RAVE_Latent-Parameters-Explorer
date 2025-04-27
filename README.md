@@ -20,7 +20,7 @@ This device encourages the exploration of RAVE models' latent parameters by manu
 
 ## Getting started
   
-- On startup, the first model in the drop down menu will be loaded and heard. Note that, technically, there is no need to change the file path of the drop down menu; if the RAVE models folder is seen by Max and the same models are present in your models folder, they will be loaded correctly in the `nn~` objects. But, to assure that everything is the same, it is better to change the path to your own folder. Alternatively, the `drop model.ts` box enables dragging and dropping any RAVE `model.ts` file manually.
+- On startup, the first model in the drop down menu will be loaded and heard. Note that, technically, there is no need to change the file path of the drop down menu; if the RAVE models folder is seen by Max and the same models are present in your models folder, they will be loaded correctly in the `nn~` objects. But, to assure that it shows the model present on your device, it is better to change the path to your own folder. Alternatively, the `drop model.ts` box enables dragging and dropping any RAVE `model.ts` file manually.
   
 - The `buffer size` is set by default to 4096 since this device was *not* built with real-time purposes in mind. The latency will increase or decrease depending on the `buffer size` along with the CPU usage.
 
