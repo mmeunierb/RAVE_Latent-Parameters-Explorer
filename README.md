@@ -53,7 +53,7 @@ Technically, there is no need to change the file path in the dropdown menu; if t
 
 ### Buffer Size
 
-   The `buffer size` is set by default to 4096, since this device was *not* built with real-time purposes in mind. The overall latency and CPU usage will vary depending on the selected `buffer size`.
+Since the device was designed with sound material generation in mind, the "dry" incoming signal cannot be heard. The `Buffer Size` is then set by default to 4096 since response time is not the primary concern. Although, if using the external signal requires low latency, the `Buffer Size` can be set lower, to the cost of a bigger CPU load.
 
 ### Input signal
 
@@ -63,9 +63,9 @@ The incoming signal, onto which the timbre transfer will be applied, can be eith
     
    - The `Gain` knob adjusts the input level of the external signal.
     
-   - The horizontal fader controls the overall input level of both the incoming external signal and the sound file.
+   - The horizontal `Input Level` fader controls the overall input level of both the incoming external signal and the sound file.
  
-➔ The `input level` appears to be a significant parameter when using RAVE models. Depending on the model, there are specific input levels where the model responds better, and others where it can completely break, producing heavy digital distortion or even silence.
+➔ The `Input Level` appears to be a significant parameter when using RAVE models. Depending on the model, there are specific input levels where the model responds better, and others where it can completely break, producing heavy digital distortion or even silence.
 
 ---
 ## Patchbay (Crosspatcher)
