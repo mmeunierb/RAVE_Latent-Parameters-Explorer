@@ -14,9 +14,9 @@ This device encourages the exploration of RAVE models' latent parameters by manu
 
 ## Before launching the .maxproj
 
-- After creating a file path to the RAVE models, an easy way to make sure they are properly seen by Max is to open a new patcher, load a `nn~` object with a model name (ex. `isis.ts`) and a method (`forward`, `encode`, `decode`) as arguments. If the path and the `.dll` files (Windows) are properly seen, the object will load normally without any error messages. If any error messages appear in the Max console, either the file path or the `.dll` files are misplaced.
+- After creating a file path to the RAVE models, an easy way to make sure they are properly seen by Max is to open a new patcher, load a `nn~` object with a model name (ex.: `isis.ts`) and a method (`forward`, `encode`, `decode`) as arguments. If the path and the `.dll` files (Windows) are properly seen, the object will load normally without any error messages. If any error messages appear in the Max console, either the file path or the `.dll` files are misplaced.
 
-- Before opening the `RAVE_params_explorer.maxproj` file, launch Max, open `Audio Status` and select the desired inputs and an outputs. This will assure the proper loading of the patch and prevent any issues related to audio settings. **FOR WINDOWS USERS**: since the device will load up four instances of the models in two mcs.nn~ objects, it is recommanded to set the audio settings to `ad_mme`, the `Thread Priority` to **Highest** and `Latency (ms)` to 250. Other set-ups seem to produce CPU spikes (Windows 10, ThinkPad T14 Gen5 AMD Ryzen 8840u, 32Gb RAM) and major audio drops.
+- Before opening the `RAVE_params_explorer.maxproj` file, launch Max, open `Audio Status` and select the desired inputs and an outputs. This will assure the proper loading of the patch and prevent any issues related to audio settings. **FOR WINDOWS USERS**: since the device will load up four instances of the models in two mcs.nn~ objects, it is recommanded to set the audio device to `ad_mme`, the `Thread Priority` to **Highest** and `Latency (ms)` to 250. Other set-ups seem to produce CPU spikes (Windows 10, ThinkPad T14 Gen5 AMD Ryzen 8840u, 32Gb RAM) and major audio drops.
 
 ## Getting started
   
@@ -28,7 +28,7 @@ This device encourages the exploration of RAVE models' latent parameters by manu
 
 ## Patchbay (crosspatcher)
 
-- The `crosspatcher` object on the left offers a visual representation of the usually hidden connexions between the encoder outlets and decoder inlets. For normal use, the latent dimensions are meant to be paired in order (0 with 0, 1 with 1, etc.), which can be called back at any point with the `RESET` button. The `CLEAR` button will erase all connexions.
+- The `crosspatcher` object on the left offers a visual representation of the usually hidden connexions between the `encoder` outlets and `decoder` inlets. For normal use, the latent dimensions are meant to be paired in order (0 with 0, 1 with 1, etc.), which can be called back at any point with the `RESET` button. The `CLEAR` button will erase all connexions.
   
 - The randomization of the patchbay is one of the key features of the device. This `SINGLE` button will create one random connexion each time it is pressed until it reaches connects all the dimensions. The `ALL` button will produce random connexions for all dimensions each time it is pressed.
   
@@ -36,8 +36,19 @@ Note that when a model with more dimensions than the previous one is loaded, the
 
 ## Latent parameters and latent noise
 
-- 
+- The first `multislider` object is exposing the `Latent Dimensions` parameters. Each slider affects the value of a dimension going into the `decoder`, meaning that this feature is inherently linked to the patchbay's connexions. The `RAND` and `RESET` buttons will randomize or reset the whole array of sliders.
+
+- The second `multislider` object is modulating randomly the values set in the first one. `Latent Noise` is applied by adujsting the modulation amount per dimension, the `latent noise frequency` is the speed of the modulation. The `RAND` and `RESET` buttons have the same effects as above.
+
+Note that when a model is loaded, the number of dimensions will **automatically** be detected and applied to the patchbay and both the multisliders. The number of dimensions is shown at the bottom right of the `Latent Noise` multislider.
 
 ## Presets and recording audio
 
-- 
+- The `Presets` box makes it easy to save and recall input level, patchbay connexions, and both the multisliders values.
+
+- The `Width` parameter can set the stereo correlation between the left and right signals, which are decorrelated by design. Having this set all the way down creates a mono signal.
+
+- If you wish to record audio directly in the patch, press `Open` to save the format and name before pressing `Record`.
+
+# Known issues
+On startup, it is possible that the patchbay shows an odd number of left hand and right hand dimensions. Simply reload a model to fix this.
