@@ -80,7 +80,7 @@ The `crosspatcher` object on the left side of the interface offers a visual repr
  
   - The `ALL` button randomizes **all** connections in one click.
   
-➔ When a model with more latent dimensions than the previous one is loaded, only the number of connections corresponding to the previous model will be connected. Use the `RESET` or `ALL` **button to refill the patchbay in one click.
+➔ When a model with more latent dimensions than the previous one is loaded, only the number of connections corresponding to the previous model will be connected. Use the `RESET` or `ALL` button to refill the patchbay in one click.
 
 ---
 ## Latent Parameters and Latent Noise
